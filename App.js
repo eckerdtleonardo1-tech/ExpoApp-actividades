@@ -1,16 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Perfil from './components/Perfil';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { useState } from 'react';
+
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>perfiles:</Text>
-      <StatusBar style="auto" />
-      <Perfil nombre="Ana" edad={16} />  
-      <Perfil nombre="fabri" edad={20}/>
-    </View>
-  );
+    const [contador, setContador] = useState(0);
+
+    const sumar = ()=>{setContador(contador + 1)};
+    const restar =()=>{
+
+
+
+if ((contador - 1) >= 0) {
+          setContador(contador - 1)
+
+}
+
+
+      
+      
+    
+    
+    
+    
+    
+    };
+   
+    return (
+        <View style = {styles.container}>
+            <Text>Contador: {contador}</Text>
+
+
+            <Button
+                title="Sumar"
+                onPress={() => sumar() }
+            />
+            <Button
+              title="Restar"
+              onPress={() => restar()}
+              />
+              <Button
+                title="Reset"
+                onPress={() => setContador(0)}
+                />
+            
+                  
+
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
