@@ -1,59 +1,21 @@
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { useState } from 'react';
-
-
+import Cont from './components/contador';
+import Nom from './components/imput';
 
 export default function App() {
-    const [contador, setContador] = useState(0);
-
-    const sumar = ()=>{setContador(contador + 1)};
-    const restar =()=>{
-
-
-
-if ((contador - 1) >= 0) {
-          setContador(contador - 1)
-
-}
-
-
-      
-      
-    
-    
-    
-    
-    
-    };
-   
-    return (
-        <View style = {styles.container}>
-            <Text>Contador: {contador}</Text>
-
-
-            <Button
-                title="Sumar"
-                onPress={() => sumar() }
-            />
-            <Button
-              title="Restar"
-              onPress={() => restar()}
-              />
-              <Button
-                title="Reset"
-                onPress={() => setContador(0)}
-                />
-            
-                  
-
-        </View>
-    );
+  return(
+    <View style={styles.container}>
+      <Nom/>
+      <Cont/>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
   },
