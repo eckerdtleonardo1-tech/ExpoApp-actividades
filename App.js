@@ -1,16 +1,32 @@
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import { useState } from 'react';
-import Cont from './components/contador';
-import Nom from './components/imput';
+ import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+  import { useState } from 'react';
+
+import InputTarea from './componentes/InputTareas';
+import ListaTareas from './componentes/ListaTareas';
 
 export default function App() {
-  return(
+
+
+ const [tareas, setTareas] = useState([]);
+// Función:
+const agregarTarea = (texto) => {
+  setTareas([...tareas, { id: Date.now(), texto }]);
+};
+
+  return (
     <View style={styles.container}>
-      <Nom/>
-      <Cont/>
+
+      <InputTarea onAgregar={agregarTarea} />
+      <ListaTareas tareas={tareas} />
+
+
     </View>
   )
 }
+
+
+
+
 
 const styles = StyleSheet.create({
   container: {
