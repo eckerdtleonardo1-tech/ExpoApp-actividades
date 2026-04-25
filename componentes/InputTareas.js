@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, TextInput, Button, map } from 'react-native';
+import Tarea from './Tarea';
 
-
-export default function InputTarea({ onAgregar }) {
+export default function InputTarea({ onAgregar, onQuitarTarea }) {
     const [texto, setTexto] = useState('');
-
 
     return (
         <View>
@@ -14,7 +13,6 @@ export default function InputTarea({ onAgregar }) {
                 onChangeText={setTexto}
             />
 
-
             <Button
                 title="Agregar"
                 onPress={() => {
@@ -22,6 +20,7 @@ export default function InputTarea({ onAgregar }) {
                     setTexto('');
                 }}
             />
+
         </View>
     );
 }
