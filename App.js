@@ -1,47 +1,123 @@
- import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-  import { useState } from 'react';
+import { View, Text, TextInput,TouchableOpacity, Button, Image, StyleSheet } from 'react-native';
 
 import InputTarea from './componentes/InputTareas';
 import ListaTareas from './componentes/ListaTareas';
 
 export default function App() {
+  return(
+<View style={{
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    // alignItems: 'center',
+    marginTop: 70
+}}>
+   <View style={{alignItems: 'center'}}>
+   <Text>hola</Text> 
+   </View>
+   <View style={{width: 400, height: 550, alignItems: 'center'}}>
+    <Image
+    style={styles.imagen}
+      source={{uri: 'https://assets.goal.com/images/v3/blt44f7c0b181e04868/GOAL%20-%20Blank%20WEB%20-%20Facebook%20(95).png?auto=webp&format=pjpg&width=3840&quality=60',
+      }}
+      />
+    <TouchableOpacity
+    style={styles.boton}
+    // onPress={onPress}
+    >
+      <Text style={styles.texto}>GOL</Text>
+    </TouchableOpacity>
+   </View>
+  </View>
 
 
- const [tareas, setTareas] = useState([]);
-// Función:
-const agregarTarea = (texto) => {
-  setTareas([...tareas, { id: Date.now(), texto }]);
-};
-
-
-const eliminarTarea = (id) => {
-    // Filtra el arreglo: deja todos menos el que coincide con el ID
-    const nuevasTareas = tareas.filter(tarea => tarea.id !== id);
-    setTareas(nuevasTareas);
-  };
-
-
-  return (
-    <View style={styles.container}>
-
-      {/* <InputTarea onQuitarTarea={eliminarTarea} /> */}
-      <InputTarea onAgregar={agregarTarea} />
-      <ListaTareas tareas={tareas} eliminarTarea={eliminarTarea} />
-
-      
-
-    </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  imagen: {
+    width: 300,
+    height: 300,
   },
-});
+  boton: {
+    backgroundColor: 'blue', 
+    borderRadius: 10,
+    width: 70,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center'
+
+
+  },
+  texto: {
+    color: 'white'
+  }
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+//   import { useState } from 'react';
+
+// import InputTarea from './componentes/InputTareas';
+// import ListaTareas from './componentes/ListaTareas';
+
+// export default function App() {
+
+
+//  const [tareas, setTareas] = useState([]);
+// // Función:
+// const agregarTarea = (texto) => {
+//   setTareas([...tareas, { id: Date.now(), texto }]);
+// };
+
+
+// const eliminarTarea = (id) => {
+//     // Filtra el arreglo: deja todos menos el que coincide con el ID
+//     const nuevasTareas = tareas.filter(tarea => tarea.id !== id);
+//     setTareas(nuevasTareas);
+//   };
+
+
+//   return (
+//     <View style={styles.container}>
+
+//       {/* <InputTarea onQuitarTarea={eliminarTarea} /> */}
+//       <InputTarea onAgregar={agregarTarea} />
+//       <ListaTareas tareas={tareas} eliminarTarea={eliminarTarea} />
+
+      
+
+//     </View>
+//   )
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#ffffff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
 
 
 // import React, { useState } from 'react';
@@ -145,3 +221,5 @@ const styles = StyleSheet.create({
 //     fontSize: 16,
 //   },
 // });
+
+
